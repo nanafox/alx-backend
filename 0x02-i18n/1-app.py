@@ -7,18 +7,18 @@ from flask_babel import Babel
 
 app = Flask(__name__)
 app.url_map.strict_slashes = False
-babel = Babel(app)
 
 
 class Config:
     """Config for the app."""
 
     LANGUAGES = ["en", "fr"]
-    babel.BABEL_DEFAULT_LOCALE = "en"
-    babel.BABEL_DEFAULT_TIMEZONE = "UTC"
+    BABEL_DEFAULT_LOCALE = "en"
+    BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
 app.config.from_object(Config)
+babel = Babel(app)
 
 
 @app.route("/", methods=["GET"])
